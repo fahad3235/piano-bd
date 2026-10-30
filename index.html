@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piano BD &#x2014; Play, Record &amp; Learn</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1 id="app-title">Piano BD</h1>
+    <p id="app-sub">Play, record and learn &#x2014; right in your browser</p>
+  </div>
+  <button id="lang-btn" type="button">&#x9ac;&#x9be;&#x982;&#x9b2;&#x9be;</button>
+</header>
+
+<main>
+  <section class="panel" aria-label="Piano">
+    <div class="status-row">
+      <span><strong id="last-note-label">Last note</strong>: <span id="last-note">&#x2014;</span></span>
+      <span id="rec-status" class="rec-indicator" aria-live="polite"></span>
+    </div>
+    <div id="keyboard" class="keyboard" role="group" aria-label="Piano keyboard, C4 to B5"></div>
+    <p id="keys-hint" class="hint">Computer keys: A&#x2013;; row plays C4&#x2013;E5 (W/S/E/T/Y/U/O/P are the black keys). Tap the piano keys on touch screens.</p>
+  </section>
+
+  <section class="panel controls" aria-label="Sound controls">
+    <label><span id="wave-label">Sound</span>
+      <select id="wave-select">
+        <option value="triangle">Triangle (soft)</option>
+        <option value="sine">Sine (pure)</option>
+        <option value="square">Square (bright)</option>
+        <option value="sawtooth">Sawtooth (rich)</option>
+      </select>
+    </label>
+    <label><span id="vol-label">Volume</span>
+      <input id="vol-range" type="range" min="0" max="1" step="0.05" value="0.7">
+    </label>
+    <label class="check"><input id="sustain-check" type="checkbox"> <span id="sustain-label">Sustain</span></label>
+  </section>
+
+  <section class="panel" aria-label="Learn a tune">
+    <h2 id="tune-label">Learn a tune</h2>
+    <div class="row">
+      <select id="tune-select">
+        <option value="twinkle">Twinkle Twinkle Little Star</option>
+        <option value="birthday">Happy Birthday</option>
+        <option value="ode">Ode to Joy</option>
+      </select>
+      <button id="tune-btn" type="button">Play tune</button>
+      <button id="step-btn" type="button">Step</button>
+    </div>
+    <p id="tune-status" class="muted" aria-live="polite"></p>
+  </section>
+
+  <section class="panel" aria-label="Recordings">
+    <h2 id="saved-title">My recordings</h2>
+    <div class="row">
+      <button id="rec-btn" type="button">Record</button>
+    </div>
+    <div id="rec-list"></div>
+  </section>
+</main>
+
+<footer><p id="footer-text">Offline toy piano. Sound is synthesized in your browser &#x2014; no audio files, no network requests.</p></footer>
+<script src="app.js"></script>
+</body>
+</html>
